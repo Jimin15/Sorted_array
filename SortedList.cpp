@@ -25,7 +25,19 @@ int SortedList<T>::GetLength() const {
 
 template<class T>
 bool SortedList<T>::Contains(T someItem) {
-
+    int midPoint;
+    int first = 0;
+    int last = length - 1;
+    while(first<=last){
+        midPoint = (first + last) / 2;
+        if(info[midPoint] > someItem){
+            first = midPoint + 1;
+        }else if(info[midPoint] < someItem){
+            last = midPoint - 1;
+        }else{
+            return true;
+        }
+    }
     return false;
 }
 
